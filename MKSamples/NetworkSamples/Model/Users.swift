@@ -35,12 +35,14 @@ import Foundation
  */
 
 public struct User: Codable {
+    
     struct Address: Codable {
         
         struct Geo: Codable {
             var lat: String
             var lng: String
         }
+        
         var street: String
         var suite: String
         var city: String
@@ -49,6 +51,7 @@ public struct User: Codable {
     }
     
     struct Company: Codable {
+        
         var name: String
         var catchPhrase: String
         var bs: String

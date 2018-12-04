@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2711848821B5299C002788BE /* TableViewSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711848721B5299C002788BE /* TableViewSampleViewController.swift */; };
+		2711848A21B529E3002788BE /* Style1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711848921B529E3002788BE /* Style1TableViewCell.swift */; };
+		2711848E21B53108002788BE /* Style1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2711848D21B53108002788BE /* Style1TableViewCell.xib */; };
+		2711849321B62A2A002788BE /* SearchMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711849221B62A2A002788BE /* SearchMusic.swift */; };
+		2711849521B63081002788BE /* TableViewSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711849421B63081002788BE /* TableViewSampleViewModel.swift */; };
+		271947AA216C882000C68DA2 /* UIEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271947A9216C882000C68DA2 /* UIEntryViewController.swift */; };
 		27268EA2214F7B4600946CD0 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27268EA1214F7B4600946CD0 /* CommandManager.swift */; };
 		27268EA5214F868F00946CD0 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27268EA4214F868F00946CD0 /* MainPageViewModel.swift */; };
 		27268EA8214F88D500946CD0 /* NetworkSamples.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27268EA7214F88D500946CD0 /* NetworkSamples.storyboard */; };
@@ -49,6 +55,12 @@
 /* Begin PBXFileReference section */
 		11C5ADB73A61FA016286665F /* Pods-MKSamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKSamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKSamples/Pods-MKSamples.release.xcconfig"; sourceTree = "<group>"; };
 		16C5A964AD0F69C151C12E5C /* Pods_MKSamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MKSamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2711848721B5299C002788BE /* TableViewSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSampleViewController.swift; sourceTree = "<group>"; };
+		2711848921B529E3002788BE /* Style1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style1TableViewCell.swift; sourceTree = "<group>"; };
+		2711848D21B53108002788BE /* Style1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Style1TableViewCell.xib; sourceTree = "<group>"; };
+		2711849221B62A2A002788BE /* SearchMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusic.swift; sourceTree = "<group>"; };
+		2711849421B63081002788BE /* TableViewSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSampleViewModel.swift; sourceTree = "<group>"; };
+		271947A9216C882000C68DA2 /* UIEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEntryViewController.swift; sourceTree = "<group>"; };
 		27268EA1214F7B4600946CD0 /* CommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
 		27268EA4214F868F00946CD0 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		27268EA7214F88D500946CD0 /* NetworkSamples.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NetworkSamples.storyboard; sourceTree = "<group>"; };
@@ -109,6 +121,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2711849121B62A04002788BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2711849221B62A2A002788BE /* SearchMusic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		271947A2216C648E00C68DA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2711848921B529E3002788BE /* Style1TableViewCell.swift */,
+				2711848D21B53108002788BE /* Style1TableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		271948A9216CA8EE00C68DA2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		27268E9F214F79F700946CD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				2782C0B3213E6949005131C1 /* EffectsViewController.swift */,
+				271947A9216C882000C68DA2 /* UIEntryViewController.swift */,
+				2711848721B5299C002788BE /* TableViewSampleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +223,7 @@
 		274D3B33213E5E4F00C2EB56 /* MKSamples */ = {
 			isa = PBXGroup;
 			children = (
+				271948A9216CA8EE00C68DA2 /* Extension */,
 				27268EA0214F7A9800946CD0 /* Manager */,
 				2782C0B8213E72C6005131C1 /* Utils */,
 				27268EA6214F86C300946CD0 /* NetworkSamples */,
@@ -220,6 +259,8 @@
 		2782C0B0213E6816005131C1 /* UISamples */ = {
 			isa = PBXGroup;
 			children = (
+				2711849121B62A04002788BE /* Model */,
+				271947A2216C648E00C68DA2 /* Views */,
 				27268EAB214F892B00946CD0 /* Controllers */,
 				2782C0B5213E69DA005131C1 /* ViewModels */,
 				2782C0B1213E68F1005131C1 /* UISamples.storyboard */,
@@ -231,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				2782C0B6213E6A19005131C1 /* EffectsViewModel.swift */,
+				2711849421B63081002788BE /* TableViewSampleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -380,6 +422,7 @@
 				2782C0B2213E68F1005131C1 /* UISamples.storyboard in Resources */,
 				274D3B3A213E5E4F00C2EB56 /* Main.storyboard in Resources */,
 				27268EA8214F88D500946CD0 /* NetworkSamples.storyboard in Resources */,
+				2711848E21B53108002788BE /* Style1TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,10 +487,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MKSamples/Pods-MKSamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -479,11 +524,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2711849521B63081002788BE /* TableViewSampleViewModel.swift in Sources */,
 				27268EA5214F868F00946CD0 /* MainPageViewModel.swift in Sources */,
+				2711849321B62A2A002788BE /* SearchMusic.swift in Sources */,
+				271947AA216C882000C68DA2 /* UIEntryViewController.swift in Sources */,
 				274D3B37213E5E4F00C2EB56 /* ViewController.swift in Sources */,
 				27268EAE214F8C5700946CD0 /* Users.swift in Sources */,
 				2782C0BC213E72E5005131C1 /* KeyboardShift.swift in Sources */,
 				2782C0B7213E6A19005131C1 /* EffectsViewModel.swift in Sources */,
+				2711848A21B529E3002788BE /* Style1TableViewCell.swift in Sources */,
+				2711848821B5299C002788BE /* TableViewSampleViewController.swift in Sources */,
 				2782C0BA213E72DC005131C1 /* StoryboardInstantiable.swift in Sources */,
 				27268EAA214F891600946CD0 /* RestfulHandleViewController.swift in Sources */,
 				274D3B35213E5E4F00C2EB56 /* AppDelegate.swift in Sources */,

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     //MARK: - switch page
     private func switchToEffectsPage() {
-        if let vc = EffectsViewController.instantiate() {
+        if let vc = UIEntryViewController.instantiate() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

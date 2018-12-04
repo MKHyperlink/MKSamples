@@ -7,6 +7,7 @@ target 'MKSamples' do
 
   # Pods for MKSamples
   pod 'Alamofire', '~> 4.7'
+  pod 'SDWebImage', '~> 4.0'
 
   target 'MKSamplesTests' do
     inherit! :search_paths

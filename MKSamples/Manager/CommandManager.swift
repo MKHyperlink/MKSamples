@@ -11,15 +11,25 @@ import Alamofire
 
 public class CommandManager {
     
-    private let STATUS_SUCCSSS = "success"
-    private let BASE_URL = "https://jsonplaceholder.typicode.com"
-    
-    private static let instance = CommandManager()
-    class var getInstance: CommandManager {
-        return instance
+    enum ManagerType {
+        case NetworkSample
+        case UISample
     }
     
-    public func getUsers(completion: @escaping (_ user: User)->Void ) {
+    private let STATUS_SUCCSSS = "success"
+    private var BASE_URL = "https://jsonplaceholder.typicode.com"
+    
+//    public static let instance = CommandManager()
+    init(type: ManagerType) {
+        switch type {
+        case .NetworkSample:
+            BASE_URL = "https://jsonplaceholder.typicode.com"
+        case .UISample:
+            BASE_URL = "https://itunes.apple.com"
+        }
+    }
+    
+    public func getUsers(completion: @escaping (_ user: User?)->Void ) {
         let url = "\(BASE_URL)/users/1"
         let headers = [String: String]()
         let parameters = [String: Any]()
@@ -31,12 +41,43 @@ public class CommandManager {
                     do {
                         let decoder = JSONDecoder()
                         let user = try decoder.decode(User.self, from: resVal)
+                        
                         completion(user)
                     } catch let jsonErr {
                         print("json parsing error:", jsonErr)
+                        completion(nil)
                     }
                 } else {
                     print("Get empty result of User")
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    public func searchMusic(keyword: String, completion: @escaping (_ searchResult: SearchResult?)->Void ) {
+        
+        let keyword = keyword.replacingOccurrences(of: " ", with: "+")
+        let url = "\(BASE_URL)/search?term=\(keyword)"
+        let headers = [String: String]()
+        let parameters = [String: Any]()
+        
+        DispatchQueue(label: "com.MKsamples.searchMusic").async {
+            Alamofire.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
+                
+                if let resVal = response.result.value {
+                    do {
+                        let decoder = JSONDecoder()
+                        let searchResult = try decoder.decode(SearchResult.self, from: resVal)
+                        
+                        completion(searchResult)
+                    } catch let jsonErr {
+                        print("json parsing error:", jsonErr)
+                        completion(nil)
+                    }
+                } else {
+                    print("Get empty result of SearchResult")
+                    completion(nil)
                 }
             }
         }

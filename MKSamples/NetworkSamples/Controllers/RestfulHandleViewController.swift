@@ -28,14 +28,25 @@ class RestfulHandleViewController: UIViewController, StoryboardInstantiable {
         // Dispose of any resources that can be recreated.
     }
     
-
+    private func startTest() {
+        self.idctrLoading.startAnimating()
+        self.viewModel.startTestRestfulAPI { [weak self] user in
+            
+            if let user = user {
+                print("email:", user.email)
+                print("username:", user.username)
+                print("name:", user.name)
+                print("company bs:", user.company.bs)
+            }
+            
+            self?.idctrLoading.stopAnimating()
+        }
+    }
+    
     //MARK: - button actions
     
     @IBAction func btnJsonTestAct(_ sender: Any) {
-        self.idctrLoading.startAnimating()
-        self.viewModel.startTestRestfulAPI { [weak self] user in
-            self?.idctrLoading.stopAnimating()
-        }
+        self.startTest()
     }
     
 }
