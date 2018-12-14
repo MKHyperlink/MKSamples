@@ -27,6 +27,11 @@ class ScrollPage: UIView {
         self.xibSetup()
     }
     
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.xibSetup()
+    }
+    
     func xibSetup() {
         guard let view = loadViewFromNib() else { return }
         view.frame = bounds

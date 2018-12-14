@@ -169,13 +169,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		271948A9216CA8EE00C68DA2 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		27268E9F214F79F700946CD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +248,6 @@
 		274D3B33213E5E4F00C2EB56 /* MKSamples */ = {
 			isa = PBXGroup;
 			children = (
-				271948A9216CA8EE00C68DA2 /* Extension */,
 				27268EA0214F7A9800946CD0 /* Manager */,
 				2782C0B8213E72C6005131C1 /* Utils */,
 				27268EA6214F86C300946CD0 /* NetworkSamples */,
