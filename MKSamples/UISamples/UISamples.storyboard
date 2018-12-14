@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,7 +92,7 @@
         <!--Table View Sample View Controller-->
         <scene sceneID="on8-SF-aFo">
             <objects>
-                <viewController storyboardIdentifier="uisample_02" id="iOV-Yp-EbG" customClass="TableViewSampleViewController" customModule="MKSamples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="uisample_tableview" id="iOV-Yp-EbG" customClass="TableViewSampleViewController" customModule="MKSamples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="udh-f4-6B6"/>
                         <viewControllerLayoutGuide type="bottom" id="XdN-Pl-JsF"/>
@@ -125,6 +126,152 @@
             </objects>
             <point key="canvasLocation" x="1071" y="164"/>
         </scene>
+        <!--Scroll Page View Controller-->
+        <scene sceneID="vyi-AT-e0x">
+            <objects>
+                <viewController storyboardIdentifier="uisample_scroll_page" id="PdN-hC-LUX" customClass="ScrollPageViewController" customModule="MKSamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v6l-Qr-Kcm"/>
+                        <viewControllerLayoutGuide type="bottom" id="NtP-OO-O2s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kON-Uz-u2C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-R7-7IE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcc-KD-QFJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="55"/>
+                                        <state key="normal" title="Page1">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnItemAct:" destination="PdN-hC-LUX" eventType="touchUpInside" id="F4Z-Gr-5Xo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRN-3l-gqa">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="55"/>
+                                        <state key="normal" title="Page2">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnItemAct:" destination="PdN-hC-LUX" eventType="touchUpInside" id="Qel-ic-IQT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig7-cn-xma">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="55"/>
+                                        <state key="normal" title="Page3">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnItemAct:" destination="PdN-hC-LUX" eventType="touchUpInside" id="Rgw-qf-jJv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="mPJ-6N-urE"/>
+                                </constraints>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFv-Qm-igT">
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-gc-ct4" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1125" height="592"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1J-0F-Bu6" userLabel="Page1" customClass="ScrollPage1" customModule="MKSamples" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="ScrollPage1"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEz-Gr-dPS" userLabel="Page2" customClass="ScrollPage2" customModule="MKSamples" customModuleProvider="target">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="592"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="ScrollPage2"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbI-g7-oLh" userLabel="Page3" customClass="ScrollPage3" customModule="MKSamples" customModuleProvider="target">
+                                                <rect key="frame" x="750" y="0.0" width="375" height="592"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="ScrollPage3"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="QEz-Gr-dPS" firstAttribute="centerY" secondItem="Swf-gc-ct4" secondAttribute="centerY" id="4KF-i7-iir"/>
+                                            <constraint firstItem="QEz-Gr-dPS" firstAttribute="leading" secondItem="A1J-0F-Bu6" secondAttribute="trailing" id="9lg-s1-YCh"/>
+                                            <constraint firstItem="A1J-0F-Bu6" firstAttribute="height" secondItem="Swf-gc-ct4" secondAttribute="height" id="JQz-s8-rhU"/>
+                                            <constraint firstItem="HbI-g7-oLh" firstAttribute="centerY" secondItem="Swf-gc-ct4" secondAttribute="centerY" id="LkX-v7-9Fd"/>
+                                            <constraint firstItem="QEz-Gr-dPS" firstAttribute="trailing" secondItem="HbI-g7-oLh" secondAttribute="leading" id="PUw-I3-RcZ"/>
+                                            <constraint firstItem="QEz-Gr-dPS" firstAttribute="height" secondItem="Swf-gc-ct4" secondAttribute="height" id="YBA-og-4fb"/>
+                                            <constraint firstItem="HbI-g7-oLh" firstAttribute="height" secondItem="Swf-gc-ct4" secondAttribute="height" id="oog-PO-78w"/>
+                                            <constraint firstItem="A1J-0F-Bu6" firstAttribute="leading" secondItem="Swf-gc-ct4" secondAttribute="leading" id="pxa-5t-LIU"/>
+                                            <constraint firstItem="A1J-0F-Bu6" firstAttribute="centerY" secondItem="Swf-gc-ct4" secondAttribute="centerY" id="skF-Dt-TFK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Swf-gc-ct4" secondAttribute="trailing" id="CRC-rk-gVB"/>
+                                    <constraint firstItem="HbI-g7-oLh" firstAttribute="width" secondItem="rFv-Qm-igT" secondAttribute="width" id="Hcy-OZ-ES9"/>
+                                    <constraint firstItem="A1J-0F-Bu6" firstAttribute="width" secondItem="rFv-Qm-igT" secondAttribute="width" id="KNc-Lt-Zi4"/>
+                                    <constraint firstItem="Swf-gc-ct4" firstAttribute="top" secondItem="rFv-Qm-igT" secondAttribute="top" id="QUj-2M-7Yz"/>
+                                    <constraint firstItem="QEz-Gr-dPS" firstAttribute="width" secondItem="rFv-Qm-igT" secondAttribute="width" id="Rb4-w8-x4A"/>
+                                    <constraint firstItem="Swf-gc-ct4" firstAttribute="leading" secondItem="rFv-Qm-igT" secondAttribute="leading" id="eIj-JH-q8u"/>
+                                    <constraint firstAttribute="bottom" secondItem="Swf-gc-ct4" secondAttribute="bottom" id="gzn-zP-bj3"/>
+                                    <constraint firstItem="Swf-gc-ct4" firstAttribute="height" secondItem="rFv-Qm-igT" secondAttribute="height" id="qZg-cP-et5"/>
+                                    <constraint firstItem="Swf-gc-ct4" firstAttribute="width" secondItem="rFv-Qm-igT" secondAttribute="width" multiplier="3" id="zzm-hO-bHA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="PdN-hC-LUX" id="AmU-xR-rAG"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oDb-Ev-JlE">
+                                <rect key="frame" x="168" y="605" width="39" height="37"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NtP-OO-O2s" firstAttribute="top" secondItem="oDb-Ev-JlE" secondAttribute="bottom" constant="25" id="3Sf-9o-dTp"/>
+                            <constraint firstAttribute="trailing" secondItem="rFv-Qm-igT" secondAttribute="trailing" id="DWR-Xo-zji"/>
+                            <constraint firstAttribute="trailing" secondItem="5IP-R7-7IE" secondAttribute="trailing" id="ME0-G1-kQU"/>
+                            <constraint firstItem="NtP-OO-O2s" firstAttribute="top" secondItem="rFv-Qm-igT" secondAttribute="bottom" id="TKA-WL-biw"/>
+                            <constraint firstItem="rFv-Qm-igT" firstAttribute="leading" secondItem="kON-Uz-u2C" secondAttribute="leading" id="W11-X6-PRR"/>
+                            <constraint firstItem="rFv-Qm-igT" firstAttribute="top" secondItem="5IP-R7-7IE" secondAttribute="bottom" id="Z0Y-ov-ebW"/>
+                            <constraint firstItem="5IP-R7-7IE" firstAttribute="top" secondItem="v6l-Qr-Kcm" secondAttribute="bottom" id="a65-6e-XWk"/>
+                            <constraint firstItem="5IP-R7-7IE" firstAttribute="leading" secondItem="kON-Uz-u2C" secondAttribute="leading" id="c3O-Vd-0hc"/>
+                            <constraint firstItem="oDb-Ev-JlE" firstAttribute="centerX" secondItem="kON-Uz-u2C" secondAttribute="centerX" id="pxZ-ig-Y9x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageIndicator" destination="oDb-Ev-JlE" id="LPM-ol-DmL"/>
+                        <outlet property="srlVwMain" destination="rFv-Qm-igT" id="fKR-3q-hlN"/>
+                        <outlet property="vwMainContent" destination="Swf-gc-ct4" id="ROS-LV-sHR"/>
+                        <outlet property="vwPage1" destination="A1J-0F-Bu6" id="a2d-fo-eir"/>
+                        <outlet property="vwPage2" destination="QEz-Gr-dPS" id="kb2-KG-TmU"/>
+                        <outletCollection property="btnItems" destination="Xcc-KD-QFJ" collectionClass="NSMutableArray" id="ORu-iz-pCq"/>
+                        <outletCollection property="btnItems" destination="NRN-3l-gqa" collectionClass="NSMutableArray" id="OP7-5n-H5u"/>
+                        <outletCollection property="btnItems" destination="Ig7-cn-xma" collectionClass="NSMutableArray" id="7b0-Ye-xNJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfr-Fe-Jbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="165"/>
+        </scene>
         <!--Entry View Controller-->
         <scene sceneID="OgJ-v0-lVc">
             <objects>
@@ -151,6 +298,14 @@
                                 <state key="normal" title="TableView"/>
                                 <connections>
                                     <action selector="btnTwoAct:" destination="V5n-9W-rK9" eventType="touchUpInside" id="5B3-F2-kD1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-4Z-W2L">
+                                <rect key="frame" x="151" y="318" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ScrollView"/>
+                                <connections>
+                                    <action selector="btnThreeAct:" destination="V5n-9W-rK9" eventType="touchUpInside" id="0pP-4d-L89"/>
                                 </connections>
                             </button>
                         </subviews>

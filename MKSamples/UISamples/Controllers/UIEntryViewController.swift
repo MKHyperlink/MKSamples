@@ -35,6 +35,10 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
         self.switchToTableViewPage()
     }
     
+    @IBAction func btnThreeAct(_ sender: UIButton) {
+        self.switchToScrollViewPage()
+    }
+    
     //MARK: switch page
     private func switchToShakeAndKeyboardPage() {
         if let vc = EffectsViewController.instantiate() {
@@ -44,6 +48,12 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
     
     private func switchToTableViewPage() {
         if let vc = TableViewSampleViewController.instantiate() {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    private func switchToScrollViewPage() {
+        if let vc = ScrollPageViewController.instantiate() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

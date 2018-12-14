@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F944821C25521004B7E13 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F944721C25521004B7E13 /* ScrollPageViewController.swift */; };
+		270F954921C25C4B004B7E13 /* ScrollPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270F954821C25C4B004B7E13 /* ScrollPage1.xib */; };
+		270F954B21C25C6C004B7E13 /* ScrollPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F954A21C25C6C004B7E13 /* ScrollPage1.swift */; };
+		270F954D21C25C7F004B7E13 /* ScrollPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F954C21C25C7F004B7E13 /* ScrollPage2.swift */; };
+		270F954F21C25C8C004B7E13 /* ScrollPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270F954E21C25C8C004B7E13 /* ScrollPage2.xib */; };
+		270F955121C2709B004B7E13 /* ScrollPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F955021C2709B004B7E13 /* ScrollPage.swift */; };
+		270F955521C27159004B7E13 /* ScrollPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F955421C27159004B7E13 /* ScrollPage3.swift */; };
+		270F955721C271CC004B7E13 /* ScrollPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270F955621C271CC004B7E13 /* ScrollPage3.xib */; };
 		2711848821B5299C002788BE /* TableViewSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711848721B5299C002788BE /* TableViewSampleViewController.swift */; };
 		2711848A21B529E3002788BE /* Style1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2711848921B529E3002788BE /* Style1TableViewCell.swift */; };
 		2711848E21B53108002788BE /* Style1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2711848D21B53108002788BE /* Style1TableViewCell.xib */; };
@@ -55,6 +63,14 @@
 /* Begin PBXFileReference section */
 		11C5ADB73A61FA016286665F /* Pods-MKSamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKSamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKSamples/Pods-MKSamples.release.xcconfig"; sourceTree = "<group>"; };
 		16C5A964AD0F69C151C12E5C /* Pods_MKSamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MKSamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		270F944721C25521004B7E13 /* ScrollPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
+		270F954821C25C4B004B7E13 /* ScrollPage1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollPage1.xib; sourceTree = "<group>"; };
+		270F954A21C25C6C004B7E13 /* ScrollPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPage1.swift; sourceTree = "<group>"; };
+		270F954C21C25C7F004B7E13 /* ScrollPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPage2.swift; sourceTree = "<group>"; };
+		270F954E21C25C8C004B7E13 /* ScrollPage2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollPage2.xib; sourceTree = "<group>"; };
+		270F955021C2709B004B7E13 /* ScrollPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPage.swift; sourceTree = "<group>"; };
+		270F955421C27159004B7E13 /* ScrollPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPage3.swift; sourceTree = "<group>"; };
+		270F955621C271CC004B7E13 /* ScrollPage3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollPage3.xib; sourceTree = "<group>"; };
 		2711848721B5299C002788BE /* TableViewSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSampleViewController.swift; sourceTree = "<group>"; };
 		2711848921B529E3002788BE /* Style1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style1TableViewCell.swift; sourceTree = "<group>"; };
 		2711848D21B53108002788BE /* Style1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Style1TableViewCell.xib; sourceTree = "<group>"; };
@@ -121,6 +137,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270F944921C255FC004B7E13 /* ScrollPages */ = {
+			isa = PBXGroup;
+			children = (
+				270F955021C2709B004B7E13 /* ScrollPage.swift */,
+				270F954821C25C4B004B7E13 /* ScrollPage1.xib */,
+				270F954A21C25C6C004B7E13 /* ScrollPage1.swift */,
+				270F954E21C25C8C004B7E13 /* ScrollPage2.xib */,
+				270F954C21C25C7F004B7E13 /* ScrollPage2.swift */,
+				270F955621C271CC004B7E13 /* ScrollPage3.xib */,
+				270F955421C27159004B7E13 /* ScrollPage3.swift */,
+			);
+			path = ScrollPages;
+			sourceTree = "<group>";
+		};
 		2711849121B62A04002788BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +162,7 @@
 		271947A2216C648E00C68DA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				270F944921C255FC004B7E13 /* ScrollPages */,
 				2711848921B529E3002788BE /* Style1TableViewCell.swift */,
 				2711848D21B53108002788BE /* Style1TableViewCell.xib */,
 			);
@@ -183,9 +214,10 @@
 		27268EAB214F892B00946CD0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2782C0B3213E6949005131C1 /* EffectsViewController.swift */,
 				271947A9216C882000C68DA2 /* UIEntryViewController.swift */,
+				2782C0B3213E6949005131C1 /* EffectsViewController.swift */,
 				2711848721B5299C002788BE /* TableViewSampleViewController.swift */,
+				270F944721C25521004B7E13 /* ScrollPageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -417,11 +449,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270F955721C271CC004B7E13 /* ScrollPage3.xib in Resources */,
 				274D3B3F213E5E5300C2EB56 /* LaunchScreen.storyboard in Resources */,
 				274D3B3C213E5E5300C2EB56 /* Assets.xcassets in Resources */,
 				2782C0B2213E68F1005131C1 /* UISamples.storyboard in Resources */,
+				270F954921C25C4B004B7E13 /* ScrollPage1.xib in Resources */,
 				274D3B3A213E5E4F00C2EB56 /* Main.storyboard in Resources */,
 				27268EA8214F88D500946CD0 /* NetworkSamples.storyboard in Resources */,
+				270F954F21C25C8C004B7E13 /* ScrollPage2.xib in Resources */,
 				2711848E21B53108002788BE /* Style1TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,10 +562,15 @@
 				2711849521B63081002788BE /* TableViewSampleViewModel.swift in Sources */,
 				27268EA5214F868F00946CD0 /* MainPageViewModel.swift in Sources */,
 				2711849321B62A2A002788BE /* SearchMusic.swift in Sources */,
+				270F954B21C25C6C004B7E13 /* ScrollPage1.swift in Sources */,
 				271947AA216C882000C68DA2 /* UIEntryViewController.swift in Sources */,
+				270F944821C25521004B7E13 /* ScrollPageViewController.swift in Sources */,
 				274D3B37213E5E4F00C2EB56 /* ViewController.swift in Sources */,
 				27268EAE214F8C5700946CD0 /* Users.swift in Sources */,
+				270F954D21C25C7F004B7E13 /* ScrollPage2.swift in Sources */,
 				2782C0BC213E72E5005131C1 /* KeyboardShift.swift in Sources */,
+				270F955121C2709B004B7E13 /* ScrollPage.swift in Sources */,
+				270F955521C27159004B7E13 /* ScrollPage3.swift in Sources */,
 				2782C0B7213E6A19005131C1 /* EffectsViewModel.swift in Sources */,
 				2711848A21B529E3002788BE /* Style1TableViewCell.swift in Sources */,
 				2711848821B5299C002788BE /* TableViewSampleViewController.swift in Sources */,

@@ -17,7 +17,7 @@ protocol TableViewSampleBehavior {
 class TableViewSampleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
     
     static var storyboardName: String { return "UISamples" }
-    static var storyboardIdentifier: String? { return "uisample_02" }
+    static var storyboardIdentifier: String? { return "uisample_tableview" }
     
     @IBOutlet weak var tableView: UITableView!
     private var viewModel: TableViewSampleBehavior?
@@ -39,8 +39,7 @@ class TableViewSampleViewController: UIViewController, UITableViewDataSource, UI
         self.tableView.tableFooterView = UIView()
         
         let nib = UINib(nibName: "Style1TableViewCell", bundle: nil)
-        self.tableView.register(nib,
-                                forCellReuseIdentifier: Style1TableViewCell.IDENTIFIER)
+        self.tableView.register(nib, forCellReuseIdentifier: Style1TableViewCell.IDENTIFIER)
     }
     
     private func dataInit() {
