@@ -8,16 +8,10 @@
 
 import UIKit
 
-protocol TableViewCellBehavior {
-    var title: String { get set }
-    var subTitle: String { get set }
-    var thumbnailUrl: String { get set }
-}
-
-struct TableViewCell: TableViewCellBehavior {
-    var title: String
-    var subTitle: String
-    var thumbnailUrl: String
+struct Style1CellDataModel {
+    var title: String?
+    var subTitle: String?
+    var thumbnailUrl: String?
 }
 
 class Style1TableViewCell: UITableViewCell {
@@ -36,12 +30,40 @@ class Style1TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func setup(viewModel: TableViewCellBehavior?) {
-        guard let viewModel = viewModel else { return }
-        
-        self.lblTitle.text = viewModel.title
-        self.lblSubTitle.text = viewModel.subTitle
-        self.imgVwThumb.sd_setImage(with: URL(string: viewModel.thumbnailUrl))
-
+    override func prepareForReuse() {
+        self.resetCell()
     }
+    
+    private func resetCell() {
+        self.lblTitle.text = ""
+        self.lblSubTitle.text = ""
+    }
+    
+    public func setup(dataModel: Style1CellDataModel?) {
+        self.set(title: dataModel?.title)
+        self.set(subTitle: dataModel?.subTitle)
+        self.set(thumbnailUrl: dataModel?.thumbnailUrl)
+    }
+    
+    private func set(title: String?) {
+        guard let title = title else {
+            self.lblTitle.text = ""
+            return
+        }
+        self.lblTitle.text = title
+    }
+    
+    private func set(subTitle: String?) {
+        guard let subTitle = subTitle else {
+            self.lblSubTitle.text = ""
+            return
+        }
+        self.lblSubTitle.text = subTitle
+    }
+    
+    private func set(thumbnailUrl url: String?) {
+        guard let url = url else { return }
+        self.imgVwThumb.sd_setImage(with: URL(string: url))
+    }
+    
 }

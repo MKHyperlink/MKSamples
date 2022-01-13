@@ -1,13 +1,13 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 target 'MKSamples' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for MKSamples
-  pod 'Alamofire', '~> 4.7'
-  pod 'SDWebImage', '~> 4.0'
+  pod 'Alamofire', '~> 5.4.4'
+  pod 'SDWebImage', '~> 5.12.1'
 
   target 'MKSamplesTests' do
     inherit! :search_paths

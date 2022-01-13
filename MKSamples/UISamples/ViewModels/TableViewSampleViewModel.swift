@@ -9,46 +9,88 @@
 import Foundation
 import SDWebImage
 
-class TableViewSampleViewModel: TableViewSampleBehavior {
+
+/// 定義 TableViewUI 行為
+protocol TableViewSampleUIBehavior: PageStatusDisplayable {
+    func updateView()
+}
+
+
+/// 定義 TableViewSample 操作行為
+protocol TableViewSampleHandler {
     
+    var uiBehavior: TableViewSampleUIBehavior? { get set }
+    var dataSource: [MusicInfo]? { get set }
+    
+    func search(keyword: String, completion: ((_ result: [MusicInfo]?) -> Void)?)
+}
+
+
+
+
+// MARK: -
+// MARK: - TableViewSampleViewModel
+
+class TableViewSampleViewModel: NSObject {
+    
+    weak var uiBehavior: TableViewSampleUIBehavior?
     var dataSource: [MusicInfo]?
     private var manager: CommandManager
     
-    init() {
+    override init() {
         self.manager = CommandManager(type: .UISample)
     }
     
-    func search(keyword: String, completion: @escaping () -> Void) {
+}
+
+
+extension TableViewSampleViewModel: TableViewSampleHandler {
+
+    func search(keyword: String, completion: ((_ result: [MusicInfo]?) -> Void)?) {
+        
+        self.uiBehavior?.showLoading(true)
         self.manager.searchMusic(keyword: keyword) { (searchResult) in
-            
+            self.uiBehavior?.showLoading(false)
             self.dataSource = searchResult?.results
-            
-            DispatchQueue.main.async {
-                completion()
-            }
+            self.uiBehavior?.updateView()
+            completion?(searchResult?.results)
         }
     }
     
-    func getCell(index: Int) -> TableViewCellBehavior? {
+}
 
-        var subTitle = ""
-        var thumbnailUrl = ""
+
+
+extension TableViewSampleViewModel: UITableViewDataSource {
+    
+    private func setup(cell: Style1TableViewCell, musicInfo: MusicInfo) {
+
+        let trackName = musicInfo.trackName ?? ""
+        let artisName = musicInfo.artistName ?? ""
+        let collectionName = musicInfo.collectionName ?? ""
         
-        guard let musicInfo = self.dataSource?[index] else {
-            return nil
-        }
+        let subTitle = "\(artisName) - \(collectionName)"
+        let thumbnailUrl = musicInfo.artworkUrl100
         
-        guard let trackName = musicInfo.trackName, let artisName = musicInfo.artistName, let collectionName = musicInfo.collectionName else {
-            return nil
-        }
-        
-        subTitle = "\(artisName) - \(collectionName)"
-        if let url = musicInfo.artworkUrl100 {
-            thumbnailUrl = url
-        }
-        
-        return TableViewCell(title: trackName,
-                             subTitle: subTitle,
-                             thumbnailUrl: thumbnailUrl)
+        let dataModel = Style1CellDataModel(title: trackName,
+                                            subTitle: subTitle,
+                                            thumbnailUrl: thumbnailUrl)
+        cell.setup(dataModel: dataModel)
     }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource?.count ?? 0
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Style1TableViewCell.IDENTIFIER, for: indexPath) as! Style1TableViewCell
+
+        if let musicInfo = self.dataSource?[indexPath.row] {
+            self.setup(cell: cell, musicInfo: musicInfo)
+        }
+        
+        return cell
+    }
+
 }

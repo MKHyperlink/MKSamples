@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ScrollPageViewController: UIViewController, UIScrollViewDelegate, StoryboardInstantiable {
+class ScrollPageViewController: UIViewController, StoryboardInstantiable {
     
     static var storyboardName: String { return "UISamples" }
     static var storyboardIdentifier: String? { return "uisample_scroll_page" }
     
-    let MAX_PAGES = 3
+    private let MAX_PAGES = 3
     
     //Menu
     @IBOutlet var btnItems: [UIButton]!
@@ -41,35 +41,43 @@ class ScrollPageViewController: UIViewController, UIScrollViewDelegate, Storyboa
         // Dispose of any resources that can be recreated.
     }
     
-    func chagneMenuStatus(page: Int) {
-        let _ = self.btnItems.map(){ $0.isSelected = false }
+    private func chagneMenuStatus(page: Int) {
+        self.btnItems.forEach({ $0.isSelected = false })
         
-        if page > 0 && page <= MAX_PAGES {
-            self.btnItems[page-1].isSelected = true
-            self.pageIndicator.currentPage = page-1
-        }
-    }
-    
-    func scrollToPage(page: Int) {
-        var contentOffset = CGPoint(x: 0, y: 0)
-        contentOffset.x = srlVwMain.frame.width * CGFloat(page-1);
-        srlVwMain.setContentOffset(contentOffset, animated: true)
+        guard page >= 0 && page < MAX_PAGES else { return }
+
+        self.btnItems[page].isSelected = true
+        self.pageIndicator.currentPage = page
     }
     
     //MARK:- button action
     @IBAction func btnItemAct(_ sender: UIButton) {
         let page = sender.tag
-        chagneMenuStatus(page: page)
-        scrollToPage(page: page)
+        self.chagneMenuStatus(page: page)
+        self.scrollToPage(page: page)
+    }
+}
+ 
+
+extension ScrollPageViewController: UIScrollViewDelegate {
+    public func scrollViewDidEndDecelerating (_ scrollView: UIScrollView) {
+        let currentPage = self.infiniteScroll(offset: scrollView.contentOffset.x)
+        self.chagneMenuStatus(page: currentPage)
+    }
+}
+
+
+
+extension ScrollPageViewController: InfiniteScrollable {
+    var infiniteScrollPageLength: CGFloat {
+        self.srlVwMain.frame.width
     }
     
-    //MARK:- UIScrollViewDelegate
-    public func scrollViewDidEndDecelerating (_ scrollView: UIScrollView) {
-        
-        // Update the page when more than 50% of the previous/next page is visible
-        let pageWidth = scrollView.frame.size.width
-        let page = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 2)
-        chagneMenuStatus(page: page)
+    var infiniteScrollView: UIScrollView {
+        self.srlVwMain
     }
-
+    
+    var infiniteScrollIndex: InfiniteScrollIndex {
+        InfiniteScrollIndex(pageCount: MAX_PAGES, enableInfiniteScroll: false)
+    }
 }

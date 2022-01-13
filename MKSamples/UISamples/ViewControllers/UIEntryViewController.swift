@@ -39,6 +39,10 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
         self.switchToScrollViewPage()
     }
     
+    @IBAction func btnFourAct(_ sender: UIButton) {
+        self.switchToInfiniteScrollViewPage()
+    }
+    
     //MARK: switch page
     private func switchToShakeAndKeyboardPage() {
         if let vc = EffectsViewController.instantiate() {
@@ -54,6 +58,12 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
     
     private func switchToScrollViewPage() {
         if let vc = ScrollPageViewController.instantiate() {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    private func switchToInfiniteScrollViewPage() {
+        if let vc = InfinitScrollVC.instantiate() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

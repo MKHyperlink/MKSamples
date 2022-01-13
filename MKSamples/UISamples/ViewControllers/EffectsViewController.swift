@@ -8,13 +8,12 @@
 
 import UIKit
 
-class EffectsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, StoryboardInstantiable {
+class EffectsViewController: UIViewController, StoryboardInstantiable {
     
     static var storyboardName: String { return "UISamples" }
     static var storyboardIdentifier: String? { return "uisample_01" }
     
-    var viewModel: EffectsViewModel?
-    var keyboardShift: KeyboardShiftDelegate!
+    var keyboardShift: KeyboardShiftable?
     
     @IBOutlet weak var vwBlock: UIView!
     @IBOutlet weak var ttfdInput: UITextField!
@@ -22,35 +21,34 @@ class EffectsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewModel = EffectsViewModel()
-        
         keyboardShift = KeyboardShift()
-        keyboardShift.viewDelegate = self.view
+        keyboardShift?.viewDelegate = self.view
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        keyboardShift.registerForKeyboardNotifications()
+        keyboardShift?.registerForKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        keyboardShift.unregisterFromKeyboardNotifications()
+        keyboardShift?.unregisterFromKeyboardNotifications()
     }
     
-    // MARK: - UITextFieldDelegate
+    //MARK: - button actions
+    @IBAction func btnStartAct() {
+        self.vwBlock.shake()
+    }
+}
+
+extension EffectsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        keyboardShift.calculatePositionY(textField)
+        keyboardShift?.calculatePositionY(textField)
     }
     
-    //MARK: - button actions
-    @IBAction func btnStartAct() {
-        viewModel?.shake(view: self.vwBlock)
-    }
-
 }

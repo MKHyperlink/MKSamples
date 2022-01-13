@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,9 +17,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="page1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0N-YT-8rN">
-                    <rect key="frame" x="157" y="204" width="46" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="page1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0N-YT-8rN">
+                    <rect key="frame" x="164.5" y="323" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -30,10 +27,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="HMk-pS-NLJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Bpf-yH-icX"/>
+                <constraint firstItem="i0N-YT-8rN" firstAttribute="centerY" secondItem="HMk-pS-NLJ" secondAttribute="centerY" id="Knt-d8-CK0"/>
                 <constraint firstItem="HMk-pS-NLJ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="bgi-nk-DSh"/>
                 <constraint firstItem="HMk-pS-NLJ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="f1o-QS-HuL"/>
                 <constraint firstItem="HMk-pS-NLJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="my6-VY-dHU"/>
+                <constraint firstItem="i0N-YT-8rN" firstAttribute="centerX" secondItem="HMk-pS-NLJ" secondAttribute="centerX" id="pno-2B-Hsj"/>
             </constraints>
+            <point key="canvasLocation" x="138" y="155"/>
         </view>
     </objects>
 </document>
