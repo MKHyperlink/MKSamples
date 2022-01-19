@@ -41,7 +41,9 @@
 		3E5D0927278E768B002D3CC4 /* Shakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D0926278E768B002D3CC4 /* Shakable.swift */; };
 		3E5D092B278EA476002D3CC4 /* InfiniteScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D092A278EA476002D3CC4 /* InfiniteScrollable.swift */; };
 		3E5D092D278EA4BB002D3CC4 /* InfinitScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D092C278EA4BB002D3CC4 /* InfinitScrollVC.swift */; };
+		3E706F78279543B600513A36 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E706F77279543B600513A36 /* CalculatorViewModel.swift */; };
 		3E723AD6278C06010030CA21 /* PageStatusDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E723AD5278C06010030CA21 /* PageStatusDisplayable.swift */; };
+		3E957C6B27917C090025EF5A /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E957C6A27917C080025EF5A /* CalculatorViewController.swift */; };
 		7A65B15D378E9623F372E9F4 /* Pods_MKSamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C5A964AD0F69C151C12E5C /* Pods_MKSamplesUITests.framework */; };
 		85278F25807F077D4FE06B3F /* Pods_MKSamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB20D0E7671CF99FEBB8B230 /* Pods_MKSamples.framework */; };
 		F09B240EB06AAE89788FA234 /* Pods_MKSamplesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAB7164D7D88293A52358FE /* Pods_MKSamplesTests.framework */; };
@@ -108,7 +110,9 @@
 		3E5D0926278E768B002D3CC4 /* Shakable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakable.swift; sourceTree = "<group>"; };
 		3E5D092A278EA476002D3CC4 /* InfiniteScrollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollable.swift; sourceTree = "<group>"; };
 		3E5D092C278EA4BB002D3CC4 /* InfinitScrollVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfinitScrollVC.swift; sourceTree = "<group>"; };
+		3E706F77279543B600513A36 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		3E723AD5278C06010030CA21 /* PageStatusDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStatusDisplayable.swift; sourceTree = "<group>"; };
+		3E957C6A27917C080025EF5A /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		417E834C8F3680598BD65AE5 /* Pods-MKSamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKSamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKSamplesTests/Pods-MKSamplesTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CF25B6403C7F18C71BBE47A /* Pods-MKSamplesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKSamplesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MKSamplesUITests/Pods-MKSamplesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4D492B4900A4961504C6D92A /* Pods-MKSamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MKSamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MKSamples/Pods-MKSamples.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				2711848721B5299C002788BE /* TableViewSampleViewController.swift */,
 				270F944721C25521004B7E13 /* ScrollPageViewController.swift */,
 				3E5D092C278EA4BB002D3CC4 /* InfinitScrollVC.swift */,
+				3E957C6A27917C080025EF5A /* CalculatorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			children = (
 				2782C0B6213E6A19005131C1 /* EffectsViewModel.swift */,
 				2711849421B63081002788BE /* TableViewSampleViewModel.swift */,
+				3E706F77279543B600513A36 /* CalculatorViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -586,11 +592,13 @@
 				27268EAE214F8C5700946CD0 /* Users.swift in Sources */,
 				270F954D21C25C7F004B7E13 /* ScrollPage2.swift in Sources */,
 				2782C0BC213E72E5005131C1 /* KeyboardShift.swift in Sources */,
+				3E957C6B27917C090025EF5A /* CalculatorViewController.swift in Sources */,
 				270F955121C2709B004B7E13 /* ScrollPage.swift in Sources */,
 				270F955521C27159004B7E13 /* ScrollPage3.swift in Sources */,
 				3E5D0927278E768B002D3CC4 /* Shakable.swift in Sources */,
 				2782C0B7213E6A19005131C1 /* EffectsViewModel.swift in Sources */,
 				2711848A21B529E3002788BE /* Style1TableViewCell.swift in Sources */,
+				3E706F78279543B600513A36 /* CalculatorViewModel.swift in Sources */,
 				2711848821B5299C002788BE /* TableViewSampleViewController.swift in Sources */,
 				2782C0BA213E72DC005131C1 /* StoryboardInstantiable.swift in Sources */,
 				3E5D092D278EA4BB002D3CC4 /* InfinitScrollVC.swift in Sources */,
@@ -778,7 +786,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YK27YWK2TQ;
 				INFOPLIST_FILE = MKSamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -799,7 +807,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YK27YWK2TQ;
 				INFOPLIST_FILE = MKSamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

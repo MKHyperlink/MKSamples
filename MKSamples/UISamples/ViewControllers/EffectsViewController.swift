@@ -11,7 +11,7 @@ import UIKit
 class EffectsViewController: UIViewController, StoryboardInstantiable {
     
     static var storyboardName: String { return "UISamples" }
-    static var storyboardIdentifier: String? { return "uisample_01" }
+    static var storyboardIdentifier: String? { return "uisample_effects" }
     
     var keyboardShift: KeyboardShiftable?
     
