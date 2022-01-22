@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public class CommandManager {
+public class CommandManager: APIResponseHandler {
     
     enum ManagerType {
         case NetworkSample
@@ -36,22 +36,7 @@ public class CommandManager {
         let parameters = [String: Any]()
         
         AF.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
-            
-            guard let resVal = response.value else {
-                print("Get empty result of User")
-                completion(nil)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let user = try decoder.decode(User.self, from: resVal)
-                
-                completion(user)
-            } catch let jsonErr {
-                print("json parsing error:", jsonErr)
-                completion(nil)
-            }
+            self.parseResponse(User.self, response: response, completion: completion)
         }
     }
     
@@ -63,23 +48,7 @@ public class CommandManager {
         let parameters = [String: Any]()
         
         AF.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
-            
-            guard let resVal = response.value else {
-                print("Get empty result of SearchResult")
-                completion(nil)
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let searchResult = try decoder.decode(SearchResult.self, from: resVal)
-                
-                completion(searchResult)
-            } catch let jsonErr {
-                print("json parsing error:", jsonErr)
-                completion(nil)
-            }
-            
+            self.parseResponse(SearchResult.self, response: response, completion: completion)
         }
     }
 }
