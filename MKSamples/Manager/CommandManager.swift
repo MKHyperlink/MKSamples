@@ -25,6 +25,7 @@ public class CommandManager {
         case .NetworkSample:
             BASE_URL = "https://jsonplaceholder.typicode.com"
         case .UISample:
+            // http://resources.organicfruitapps.com/documentation/itunes-store-web-service-search-api/
             BASE_URL = "https://itunes.apple.com"
         }
     }

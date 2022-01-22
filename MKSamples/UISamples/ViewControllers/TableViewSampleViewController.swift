@@ -39,15 +39,20 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
         self.tableView.register(nib, forCellReuseIdentifier: Style1TableViewCell.IDENTIFIER)
         
         self.idctrLoading.hidesWhenStopped = true
+        
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self,
+                                                 action: #selector(fetchData),
+                                                 for: .valueChanged)
     }
     
     private func dataInit() {
         self.viewModel = TableViewSampleViewModel()
         self.viewModel?.uiBehavior = self
         self.tableView.dataSource = self.viewModel
-        
     }
-    
+
+    @objc
     private func fetchData() {
         let keyword = "kurakimai"
         self.viewModel?.search(keyword: keyword, completion: nil)
@@ -58,8 +63,15 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
 
 // MARK: - TableViewSampleUIBehavior
 extension TableViewSampleViewController: TableViewSampleUIBehavior {
-    func showLoading(_ status: Bool) {
-        status ? self.idctrLoading.startAnimating() : self.idctrLoading.stopAnimating()
+    func showLoading(_ isOn: Bool) {
+        if isOn {
+            if !(self.tableView.refreshControl?.isRefreshing ?? false) {
+                self.idctrLoading.startAnimating()
+            }
+        } else {
+            self.tableView.refreshControl?.endRefreshing()
+            self.idctrLoading.stopAnimating()
+        }
     }
     
     func updateView() {

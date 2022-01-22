@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PageStatusDisplayable: AnyObject {
-    func showLoading(_ status: Bool)
+    func showLoading(_ isOn: Bool)
 }
 
 

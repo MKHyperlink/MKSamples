@@ -321,7 +321,6 @@
 		2782C0B8213E72C6005131C1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2782C0B9213E72DC005131C1 /* StoryboardInstantiable.swift */,
 				2782C0BB213E72E5005131C1 /* KeyboardShift.swift */,
 			);
 			path = Utils;
@@ -330,6 +329,7 @@
 		3E723AD4278C05D40030CA21 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2782C0B9213E72DC005131C1 /* StoryboardInstantiable.swift */,
 				3E5D092A278EA476002D3CC4 /* InfiniteScrollable.swift */,
 				3E723AD5278C06010030CA21 /* PageStatusDisplayable.swift */,
 				3E5D0926278E768B002D3CC4 /* Shakable.swift */,

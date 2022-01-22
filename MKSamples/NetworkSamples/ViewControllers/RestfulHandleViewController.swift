@@ -65,7 +65,7 @@ extension RestfulHandleViewController: RestfulHandlerUIBehavior {
         self.ttvwResopnse.text = String(decoding: data, as: UTF8.self)
     }
     
-    func showLoading(_ status: Bool) {
-        status ? self.idctrLoading.startAnimating() : self.idctrLoading.stopAnimating()
+    func showLoading(_ isOn: Bool) {
+        isOn ? self.idctrLoading.startAnimating() : self.idctrLoading.stopAnimating()
     }
 }
