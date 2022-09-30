@@ -8,6 +8,7 @@
 
 import Foundation
 import SDWebImage
+import Alamofire
 
 
 /// 定義 TableViewUI 行為
@@ -16,13 +17,20 @@ protocol TableViewSampleUIBehavior: PageStatusDisplayable {
 }
 
 
-/// 定義 TableViewSample 操作行為
-protocol TableViewSampleHandler {
-    
+/// Define TableViewSample dataSource and operation delegate
+protocol TableViewSampleProtocol {
     var uiBehavior: TableViewSampleUIBehavior? { get set }
     var dataSource: [MusicInfo]? { get set }
-    
+}
+
+/// TableViewSample operations with closure style
+protocol TableViewSampleOperable: TableViewSampleProtocol {
     func search(keyword: String, completion: ((_ result: [MusicInfo]?) -> Void)?)
+}
+
+/// TableViewSample operations with Swift Concurrency style
+protocol TableViewSampleAsyncOperable: TableViewSampleOperable {
+    func search(keyword: String) async
 }
 
 
@@ -43,11 +51,16 @@ class TableViewSampleViewModel: NSObject {
     
 }
 
+extension TableViewSampleViewModel {
+    func clearData() {
+        self.dataSource?.removeAll()
+        self.uiBehavior?.updateView()
+    }
+}
 
-extension TableViewSampleViewModel: TableViewSampleHandler {
-
+extension TableViewSampleViewModel: TableViewSampleOperable {
     func search(keyword: String, completion: ((_ result: [MusicInfo]?) -> Void)?) {
-        
+        self.clearData()
         self.uiBehavior?.showLoading(true)
         self.manager.searchMusic(keyword: keyword) { (searchResult) in
             self.uiBehavior?.showLoading(false)
@@ -57,6 +70,23 @@ extension TableViewSampleViewModel: TableViewSampleHandler {
         }
     }
     
+}
+
+extension TableViewSampleViewModel: TableViewSampleAsyncOperable {
+    func search(keyword: String) async {
+        self.clearData()
+        self.uiBehavior?.showLoading(true)
+        let result: Result<SearchResult, AFError> = await self.manager.searchMusic(keyword: keyword)
+        debugPrint(result)
+        switch result {
+        case .success(let model):
+            self.uiBehavior?.showLoading(false)
+            self.dataSource = model.results
+            self.uiBehavior?.updateView()
+        case .failure(_):
+            break
+        }
+    }
 }
 
 

@@ -17,21 +17,23 @@ public class CommandManager: APIResponseHandler {
     }
     
     private let STATUS_SUCCSSS = "success"
-    private var BASE_URL = "https://jsonplaceholder.typicode.com"
+    private var urlComponent: URLComponents?
     
 //    public static let instance = CommandManager()
     init(type: ManagerType) {
         switch type {
         case .NetworkSample:
-            BASE_URL = "https://jsonplaceholder.typicode.com"
+            urlComponent = URLComponents(string: "https://jsonplaceholder.typicode.com")
         case .UISample:
             // http://resources.organicfruitapps.com/documentation/itunes-store-web-service-search-api/
-            BASE_URL = "https://itunes.apple.com"
+            urlComponent = URLComponents(string: "https://itunes.apple.com")
         }
     }
     
     public func getUsers(completion: @escaping (_ user: User?)->Void ) {
-        let url = "\(BASE_URL)/users/1"
+        urlComponent?.path = "/users/1"
+        guard let url = urlComponent?.url?.absoluteURL else { return }
+        
         let headers = HTTPHeaders()
         let parameters = [String: Any]()
         
@@ -40,15 +42,36 @@ public class CommandManager: APIResponseHandler {
         }
     }
     
-    public func searchMusic(keyword: String, completion: @escaping (_ searchResult: SearchResult?)->Void ) {
-        
+    private func searchMusicUrl(keyword: String) -> String? {
         let keyword = keyword.replacingOccurrences(of: " ", with: "+")
-        let url = "\(BASE_URL)/search?term=\(keyword)"
+        urlComponent?.path = "/search"
+        urlComponent?.queryItems = [URLQueryItem(name: "term", value: keyword)]
+        return urlComponent?.url?.absoluteString
+    }
+    
+    public func searchMusic(keyword: String, completion: @escaping (_ searchResult: SearchResult?)->Void ) {
+        guard let url = searchMusicUrl(keyword: keyword) else { return }
         let headers = HTTPHeaders()
         let parameters = [String: Any]()
         
         AF.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
             self.parseResponse(SearchResult.self, response: response, completion: completion)
         }
+    }
+    
+    public func searchMusic<T: Decodable>(keyword: String) async -> Result<T, AFError> {
+        guard let url = searchMusicUrl(keyword: keyword) else {
+            return Result.failure(AFError.invalidURL(url: ""))
+        }
+        
+        let headers = HTTPHeaders()
+        let parameters = [String: Any]()
+        
+        return await AF.request(url,
+                                method: .get,
+                                parameters: parameters,
+                                headers: headers)
+        .serializingDecodable(T.self)
+        .result
     }
 }

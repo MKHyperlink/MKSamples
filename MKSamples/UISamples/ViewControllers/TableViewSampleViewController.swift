@@ -16,7 +16,9 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var idctrLoading: UIActivityIndicatorView!
     
-    private var viewModel: (TableViewSampleHandler &
+    private var viewModel: (TableViewSampleProtocol &
+                            TableViewSampleOperable &
+                            TableViewSampleAsyncOperable &
                             UITableViewDataSource)?
     
     override func viewDidLoad() {
@@ -55,7 +57,10 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
     @objc
     private func fetchData() {
         let keyword = "kurakimai"
-        self.viewModel?.search(keyword: keyword, completion: nil)
+//        self.viewModel?.search(keyword: keyword, completion: nil)
+        Task {
+            await self.viewModel?.search(keyword: keyword)
+        }
     }
     
 }
@@ -64,17 +69,21 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
 // MARK: - TableViewSampleUIBehavior
 extension TableViewSampleViewController: TableViewSampleUIBehavior {
     func showLoading(_ isOn: Bool) {
-        if isOn {
-            if !(self.tableView.refreshControl?.isRefreshing ?? false) {
-                self.idctrLoading.startAnimating()
+        DispatchQueue.main.async {
+            if isOn {
+                if !(self.tableView.refreshControl?.isRefreshing ?? false) {
+                    self.idctrLoading.startAnimating()
+                }
+            } else {
+                self.tableView.refreshControl?.endRefreshing()
+                self.idctrLoading.stopAnimating()
             }
-        } else {
-            self.tableView.refreshControl?.endRefreshing()
-            self.idctrLoading.stopAnimating()
         }
     }
     
     func updateView() {
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
