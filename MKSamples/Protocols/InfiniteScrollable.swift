@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct InfiniteScrollSetting {
-    /// 設定橫向或縱向滾動
-    var isHorizontalScroll: Bool = true
-    
-    var isEnablePagingIndicator: Bool = true
-}
-
 struct InfiniteScrollIndex {
     /// 資料源的實際大小（不包含假首/尾頁）
     let originalPageCount: Int
@@ -61,18 +54,13 @@ protocol InfiniteScrollable {
     /// 定義假首頁/假尾頁的 index 轉換
     var infiniteScrollIndex: InfiniteScrollIndex { get }
     
-    /// 客製化參數設定
-    ///
-    /// ex.  設定橫向或縱向滾動
-    var infiniteScrollSetting: InfiniteScrollSetting { get }
+    /// 設定橫向或縱向滾動
+    var isHorizontalScroll: Bool { get }
     
 }
 
 
 extension InfiniteScrollable {
-    
-    // 使用 InfiniteScroll 設定預設值，再由覆寫值做設定變更
-    var infiniteScrollSetting: InfiniteScrollSetting { InfiniteScrollSetting() }
     
     /// 滾動至指定頁面
     /// - Parameters:
@@ -84,7 +72,7 @@ extension InfiniteScrollable {
 
         let scrollView = self.infiniteScrollView
         let directionOffset = self.infiniteScrollPageLength * CGFloat(page-self.infiniteScrollIndex.startIdx)
-        let offset = self.infiniteScrollSetting.isHorizontalScroll ?
+        let offset = self.isHorizontalScroll ?
             CGPoint(x: directionOffset, y: 0) :
             CGPoint(x: 0, y: directionOffset)
         scrollView.setContentOffset(offset, animated: animated)

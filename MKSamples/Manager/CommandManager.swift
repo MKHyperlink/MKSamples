@@ -12,19 +12,18 @@ import Alamofire
 public class CommandManager: APIResponseHandler {
     
     enum ManagerType {
-        case NetworkSample
-        case UISample
+        case networkSample
+        case uiSample
     }
     
-    private let STATUS_SUCCSSS = "success"
     private var urlComponent: URLComponents?
     
 //    public static let instance = CommandManager()
     init(type: ManagerType) {
         switch type {
-        case .NetworkSample:
+        case .networkSample:
             urlComponent = URLComponents(string: "https://jsonplaceholder.typicode.com")
-        case .UISample:
+        case .uiSample:
             // http://resources.organicfruitapps.com/documentation/itunes-store-web-service-search-api/
             urlComponent = URLComponents(string: "https://itunes.apple.com")
         }

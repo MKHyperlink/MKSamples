@@ -1,5 +1,5 @@
 # MKSamples
-My coding style and code samples
+雜七雜八的 Code samples
 
 UISample: (以顯示 UI 元件操作結果為主)
   - Shake & Keyboard
@@ -11,8 +11,6 @@ UISample: (以顯示 UI 元件操作結果為主)
     * 使用 UISCrollView 實作 multi-tab page 
   - Pages(UICollectionView)
     * 使用 UICollectionView 顯示 infinite scroll
-  - Calcalator (MVVM pattern)
-    * 簡易加減乘除計算機
 
 JsonSample:
   * RESTful API 讀取流程

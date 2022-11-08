@@ -13,16 +13,16 @@ class ScrollPageViewController: UIViewController, StoryboardInstantiable {
     static var storyboardName: String { return "UISamples" }
     static var storyboardIdentifier: String? { return "uisample_scroll_page" }
     
-    private let MAX_PAGES = 3
+    private let maxPages = 3
     
     //Menu
-    @IBOutlet var btnItems: [UIButton]!
+    @IBOutlet var itemsButton: [UIButton]!
     
     //Content
-    @IBOutlet weak var srlVwMain: UIScrollView!
-    @IBOutlet weak var vwMainContent: UIView!
-    @IBOutlet weak var vwPage1: ScrollPage1!
-    @IBOutlet weak var vwPage2: ScrollPage2!
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var mainScrollContentView: UIView!
+    @IBOutlet weak var page1View: ScrollPage1!
+    @IBOutlet weak var page2View: ScrollPage2!
     
     @IBOutlet weak var pageIndicator: UIPageControl!
 
@@ -33,7 +33,7 @@ class ScrollPageViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func viewInit() {
-        srlVwMain.contentSize = vwMainContent.bounds.size
+        mainScrollView.contentSize = mainScrollContentView.bounds.size
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,11 +42,11 @@ class ScrollPageViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func chagneMenuStatus(page: Int) {
-        self.btnItems.forEach({ $0.isSelected = false })
+        self.itemsButton.forEach({ $0.isSelected = false })
         
-        guard page >= 0 && page < MAX_PAGES else { return }
+        guard page >= 0 && page < maxPages else { return }
 
-        self.btnItems[page].isSelected = true
+        self.itemsButton[page].isSelected = true
         self.pageIndicator.currentPage = page
     }
     
@@ -69,15 +69,17 @@ extension ScrollPageViewController: UIScrollViewDelegate {
 
 
 extension ScrollPageViewController: InfiniteScrollable {
+    var isHorizontalScroll: Bool { true }
+    
     var infiniteScrollPageLength: CGFloat {
-        self.srlVwMain.frame.width
+        self.mainScrollView.frame.width
     }
     
     var infiniteScrollView: UIScrollView {
-        self.srlVwMain
+        self.mainScrollView
     }
     
     var infiniteScrollIndex: InfiniteScrollIndex {
-        InfiniteScrollIndex(pageCount: MAX_PAGES, enableInfiniteScroll: false)
+        InfiniteScrollIndex(pageCount: maxPages, enableInfiniteScroll: false)
     }
 }

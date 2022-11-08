@@ -43,10 +43,6 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
         self.switchToInfiniteScrollViewPage()
     }
     
-    @IBAction func btnFiveAct(_ sender: UIButton) {
-        self.switchToCalculatorViewPage()
-    }
-    
     //MARK: switch page
     private func switchToShakeAndKeyboardPage() {
         if let vc = EffectsViewController.instantiate() {
@@ -67,15 +63,9 @@ class UIEntryViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func switchToInfiniteScrollViewPage() {
-        if let vc = InfinitScrollVC.instantiate() {
+        if let vc = InfiniteScrollVC.instantiate() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
-    private func switchToCalculatorViewPage() {
-        if let vc = CalculatorViewController.instantiate() {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
 }

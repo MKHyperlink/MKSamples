@@ -15,8 +15,10 @@ class EffectsViewController: UIViewController, StoryboardInstantiable {
     
     var keyboardShift: KeyboardShiftable?
     
-    @IBOutlet weak var vwBlock: UIView!
-    @IBOutlet weak var ttfdInput: UITextField!
+    /// 會晃動的方塊
+    @IBOutlet weak var blockView: UIView!
+    
+    @IBOutlet weak var inputTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class EffectsViewController: UIViewController, StoryboardInstantiable {
     
     //MARK: - button actions
     @IBAction func btnStartAct() {
-        self.vwBlock.shake()
+        self.blockView.shake()
     }
 }
 

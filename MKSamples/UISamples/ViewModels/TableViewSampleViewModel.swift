@@ -46,7 +46,7 @@ class TableViewSampleViewModel: NSObject {
     private var manager: CommandManager
     
     override init() {
-        self.manager = CommandManager(type: .UISample)
+        self.manager = CommandManager(type: .uiSample)
     }
     
 }
@@ -114,7 +114,7 @@ extension TableViewSampleViewModel: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Style1TableViewCell.IDENTIFIER, for: indexPath) as! Style1TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Style1TableViewCell.identifier, for: indexPath) as! Style1TableViewCell
 
         if let musicInfo = self.dataSource?[indexPath.row] {
             self.setup(cell: cell, musicInfo: musicInfo)

@@ -14,7 +14,7 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
     static var storyboardIdentifier: String? { return "uisample_tableview" }
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var idctrLoading: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     
     private var viewModel: (TableViewSampleProtocol &
                             TableViewSampleOperable &
@@ -38,9 +38,9 @@ class TableViewSampleViewController: UIViewController, StoryboardInstantiable {
         self.tableView.tableFooterView = UIView()
         
         let nib = UINib(nibName: "Style1TableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: Style1TableViewCell.IDENTIFIER)
+        self.tableView.register(nib, forCellReuseIdentifier: Style1TableViewCell.identifier)
         
-        self.idctrLoading.hidesWhenStopped = true
+        self.loadingIndicatorView.hidesWhenStopped = true
         
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self,
@@ -72,11 +72,11 @@ extension TableViewSampleViewController: TableViewSampleUIBehavior {
         DispatchQueue.main.async {
             if isOn {
                 if !(self.tableView.refreshControl?.isRefreshing ?? false) {
-                    self.idctrLoading.startAnimating()
+                    self.loadingIndicatorView.startAnimating()
                 }
             } else {
                 self.tableView.refreshControl?.endRefreshing()
-                self.idctrLoading.stopAnimating()
+                self.loadingIndicatorView.stopAnimating()
             }
         }
     }

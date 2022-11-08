@@ -16,7 +16,7 @@ struct Style1CellDataModel {
 
 class Style1TableViewCell: UITableViewCell {
     
-    static let IDENTIFIER = "Style1TableViewCell"
+    static let identifier = "Style1TableViewCell"
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!

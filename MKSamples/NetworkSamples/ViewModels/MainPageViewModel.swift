@@ -34,7 +34,7 @@ class MainPageViewModel {
     private var manager: CommandManager
     
     init() {
-        self.manager = CommandManager(type: .NetworkSample)
+        self.manager = CommandManager(type: .networkSample)
     }
 }
 
